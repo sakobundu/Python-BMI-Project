@@ -1,0 +1,84 @@
+
+# function that accepts the height and weight as parameters and
+
+# returns the body mass index
+
+def calculate_bmi(height, weight):
+
+    bmi = weight * (703/(height ** 2))
+
+    return bmi
+
+
+# function that accepts the body mass index as a parameter and
+
+# returns whether the individual is underweight, normal weight, or overweight
+
+def bmi_category(bmi):
+
+    #conditions
+
+    if ( bmi < 16):
+
+        return "underweight"
+
+    elif ( bmi >= 16 and bmi <= 25):
+
+        return "normalweight"
+
+    elif (bmi > 25):
+
+       return "overweight"
+
+  
+#creating list of six names
+
+
+Names_of_individuals = ['Jane', 'John', 'Scholes', 'Gerald', 'Brittany', 'Al Capone']
+
+bmi_list = [] #declare an empty list for bmi
+
+for name in Names_of_individuals: #loop through each name in Names_of_individuals
+
+    # getting height and weight for each person
+
+    height = float(input(name + ", Enter your height in inches: "))
+
+    weight = float(input(name + ", Enter your weight in pounds: "))
+
+    bmi = calculate_bmi(height, weight) #calculating the bmi for particular person
+
+    bmi_list.append(bmi) #appending the bmi to bmi_list
+
+
+
+#initialize number of underweight, normalweight and overweight persons as 0
+
+num_under = 0
+
+num_normal = 0
+
+num_over = 0
+
+for bmi in bmi_list: #loop through each bmi in bmi_list
+
+    category = bmi_category(bmi) #finding the category
+
+    if category == "underweight": #increment num_under by 1 if category is underweight
+
+        num_under = num_under + 1
+
+    elif category == "normalweight": #increment num_normal by 1 if category is normalweight
+
+        num_normal = num_normal + 1
+
+    elif category == "overweight": #increment num_over by 1 if category is overweight
+
+        num_over = num_over + 1
+
+
+print("\nNumber of underweight persons: ", num_under)
+
+print("Number of normalweight persons: ", num_normal)
+
+print("Number of overweight persons: ", num_over)
